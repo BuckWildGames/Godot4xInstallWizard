@@ -1,0 +1,239 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvjlowwd0hgub"]
+
+[ext_resource type="Script" path="res://assets/scripts/install_wizard.gd" id="1_syjnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6rhc4"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_syjnj")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ProjectNameLabel" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Project Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProjectVersionLabel" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+text = "0.0.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="InstallPathLabel" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+text = "Install Path"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InstallPath" type="Label" parent="BG/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "C:/Program Files (x86)"
+
+[node name="VSeparator" type="VSeparator" parent="BG/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="InstallPathButton" type="Button" parent="BG/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Select Install Location"
+
+[node name="HSeparator2" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6rhc4")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BG/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProjectSizeLabel" type="Label" parent="BG/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Required space: "
+
+[node name="ProjectSize" type="Label" parent="BG/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0.0 GB"
+
+[node name="VSeparator" type="VSeparator" parent="BG/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="InstallPathSizeLabel" type="Label" parent="BG/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Available Space: "
+
+[node name="InstallPathSize" type="Label" parent="BG/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0.0 GB"
+
+[node name="HSeparator3" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="BG/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ShortcutCheckBox" type="CheckBox" parent="BG/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Create Desktop Shortcut"
+alignment = 1
+icon_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="BG/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="StartMenuCheckBox" type="CheckBox" parent="BG/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Create Start Menu Shortcut"
+alignment = 1
+icon_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="BG/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LicenseLabel" type="Label" parent="BG/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Please view and accept license to install"
+
+[node name="VSeparator" type="VSeparator" parent="BG/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="ViewLicenseButton" type="Button" parent="BG/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+focus_mode = 0
+text = "View"
+
+[node name="VSeparator2" type="VSeparator" parent="BG/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="AcceptLicenseCheckBox" type="CheckBox" parent="BG/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+text = "Accept"
+alignment = 1
+icon_alignment = 1
+
+[node name="HSeparator6" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="InstallButton" type="Button" parent="BG/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Install"
+
+[node name="HSeparator7" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6rhc4")
+
+[node name="StatusLabel" type="Label" parent="BG/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="BG/VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator8" type="HSeparator" parent="BG/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6rhc4")
+
+[node name="FinishButton" type="Button" parent="BG/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "Finish"
+
+[node name="FileDialog" type="FileDialog" parent="BG"]
+title = "Open a Directory"
+initial_position = 1
+ok_button_text = "Select Current Folder"
+dialog_hide_on_ok = true
+file_mode = 2
+access = 2
+use_native_dialog = true
+
+[node name="LicensePanelContainer" type="PanelContainer" parent="BG"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/LicensePanelContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="BG/LicensePanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "x"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BG/LicensePanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 400)
+layout_mode = 2
+
+[node name="LicenseLabel" type="Label" parent="BG/LicensePanelContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(450, 400)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "License text"
+autowrap_mode = 2
+
+[connection signal="pressed" from="BG/VBoxContainer/HBoxContainer/InstallPathButton" to="." method="_on_SelectInstallPathButton_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/HBoxContainer4/ViewLicenseButton" to="." method="_on_ViewButton_pressed"]
+[connection signal="toggled" from="BG/VBoxContainer/HBoxContainer4/AcceptLicenseCheckBox" to="." method="_on_AcceptButton_toggled"]
+[connection signal="pressed" from="BG/VBoxContainer/InstallButton" to="." method="_on_InstallButton_pressed"]
+[connection signal="pressed" from="BG/VBoxContainer/FinishButton" to="." method="_on_FinishButton_pressed"]
+[connection signal="dir_selected" from="BG/FileDialog" to="." method="_on_DirectoryDialog_dir_selected"]
+[connection signal="pressed" from="BG/LicensePanelContainer/VBoxContainer/CloseButton" to="." method="_on_ViewButton_pressed"]
