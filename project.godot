@@ -11,12 +11,11 @@ config_version=5
 [application]
 
 config/name="Install Wizard"
-config/version="1.0.0"
+config/version="1.0.1"
 run/main_scene="res://assets/scenes/main.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://files/icon.svg"
-config/windows_native_icon="res://files/icon.ico"
+config/icon="res://icon.svg"
 
 [display]
 

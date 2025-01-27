@@ -101,6 +101,7 @@ func _on_AcceptButton_toggled(toggled_on: bool) -> void:
 # Start the installation process
 func _on_InstallButton_pressed() -> void:
 	accept_checkbox.set_disabled(true)
+	start_menu_checkbox.set_disabled(true)
 	install_button.set_disabled(true)
 	install_dir_picker.set_disabled(true)
 	_install_project()
@@ -109,26 +110,6 @@ func _on_InstallButton_pressed() -> void:
 # Close the program
 func _on_FinishButton_pressed() -> void:
 	get_tree().quit()
-
-
-func _get_file_size(file_path: String) -> String:
-	var file = FileAccess.open(file_path, FileAccess.READ)
-
-	if file == null:
-		return "Error"
-
-	var file_size_bytes = file.get_length()
-	file.close()
-
-	var file_size_mb = file_size_bytes / 1024.0 / 1024.0
-	var file_size_gb = file_size_bytes / 1024.0 / 1024.0 / 1024.0
-
-	if file_size_gb >= 1:
-		return str(snapped(file_size_gb, 0.01)) + " GB"
-	elif file_size_mb >= 1:
-		return str(snapped(file_size_mb, 0.01)) + " MB"
-	else:
-		return str(file_size_bytes) + " bytes"
 
 
 func _get_folder_size(folder_path: String) -> String:
@@ -147,8 +128,9 @@ func _get_folder_size(folder_path: String) -> String:
 				break  # End of folder
 			
 			var file_path = folder_path + "/" + file
-			if dir.current_is_dir():  # If it's a folder, call the function recursively
-				total_size += _get_folder_size(file_path)
+			if dir.current_is_dir():  # If it's a folder, ignore it
+				status_label.set_text("Folder detected in '/files' folder")
+				print("res://files should only have the exported project files in it!")
 			else:  # If it's a file, add its size
 				var temp_file = FileAccess.open(file_path, FileAccess.READ)
 				if temp_file != null:
@@ -353,6 +335,7 @@ func _install_project() -> void:
 	if not log_file:
 		status_label.set_text("Failed, needs access to folder!")
 		accept_checkbox.set_disabled(false)
+		start_menu_checkbox.set_disabled(false)
 		install_button.set_disabled(false)
 		install_dir_picker.set_disabled(false)
 		return
@@ -364,10 +347,7 @@ func _install_project() -> void:
 	# Copy game files
 	var source_dir = "res://files/"
 	var files_dir = DirAccess.open("res://files")
-	var files_dirs = files_dir.get_directories()
-	var files_files = files_dir.get_files()
-	var project_files = files_dirs
-	project_files.append_array(files_files)
+	var project_files = files_dir.get_files()
 	for i in range(project_files.size()):
 		var file_name = project_files[i]
 		if not ".import" in file_name:
