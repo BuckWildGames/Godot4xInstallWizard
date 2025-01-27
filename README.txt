@@ -1,5 +1,7 @@
 A simple Install Wizard, can be edited to fit almost any project.
 
+Made in Godot4.3
+
 *only officialy tested on windows, but should work for macOS and Linux.
 
 .setup the install wizard to fit your project theme
