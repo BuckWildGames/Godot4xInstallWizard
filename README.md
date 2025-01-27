@@ -1,8 +1,11 @@
+# Godot4xInstallWizard
 A simple Install Wizard, can be edited to fit almost any project.
 
 Made in Godot4.3
 
 *only officialy tested on windows, but should work for macOS and Linux.
+
+# How to:
 
 .setup the install wizard to fit your project theme
 
@@ -16,9 +19,15 @@ Made in Godot4.3
 
 .run the install wizard
 
+# License:
+
 MIT License
 
+# Credit:
+
 Made by BuckWildGames
+
+# Links:
 
 GitHub: https://github.com/BuckWildGames
 Itch.io: https://buck-wild-games.itch.io/
